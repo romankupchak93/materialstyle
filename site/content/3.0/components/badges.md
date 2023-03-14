@@ -29,7 +29,7 @@ Badges scale to match the size of the immediate parent element by using relative
 {{< example codeId="code2" class="d-flex justify-content-center align-items-center flex-wrap">}}
 
 <button type="button" class="btn btn-primary">
-  Notifications <span class="badge text-bg-warning">4</span>
+  Notifications <span class="badge bg-warning">4</span>
 </button>
 
 {{< /example >}}
@@ -47,10 +47,10 @@ Use utilities to modify a ```.badge``` and position it in the corner of a link o
     <span class="visually-hidden">unread messages</span>
   </span>
 </button>
-        
+
 {{< /example >}}
 
-You can also replace the ```.badge``` class with a few more utilities without a count 
+You can also replace the ```.badge``` class with a few more utilities without a count
 for a more generic indicator.
 
 {{< example codeId="code5" class="d-flex justify-content-center align-items-center flex-wrap">}}
@@ -61,52 +61,52 @@ for a more generic indicator.
     <span class="visually-hidden">New alerts</span>
   </span>
 </button>
-        
+
 {{< /example >}}
 
 ## Color options
 
 {{< example codeId="code6" class="d-flex justify-content-center align-items-center flex-wrap gap-2" >}}
 
-<span class="badge text-bg-primary">Primary</span>
+<span class="badge bg-primary">Primary</span>
 ##split##
-<span class="badge text-bg-secondary">Secondary</span>
+<span class="badge bg-secondary">Secondary</span>
 ##split##
-<span class="badge text-bg-success">Success</span>
+<span class="badge bg-success">Success</span>
 ##split##
-<span class="badge text-bg-info">Info</span>
+<span class="badge bg-info">Info</span>
 ##split##
-<span class="badge text-bg-warning">Warning</span>
+<span class="badge bg-warning">Warning</span>
 ##split##
-<span class="badge text-bg-danger">Danger</span>
+<span class="badge bg-danger">Danger</span>
 ##split##
-<span class="badge text-bg-light">Light</span>
+<span class="badge bg-light">Light</span>
 ##split##
-<span class="badge text-bg-dark">Dark</span>
+<span class="badge bg-dark">Dark</span>
 
 {{< /example >}}
 
 ## Pill badges
 
-Use the ```.rounded-pill``` utility class to make badges more rounded 
+Use the ```.rounded-pill``` utility class to make badges more rounded
 with a larger ```border-radius```.
 
 {{< example codeId="code7" class="d-flex justify-content-center align-items-center flex-wrap gap-2" >}}
 
-<span class="badge rounded-pill text-bg-primary">Primary</span>
+<span class="badge rounded-pill bg-primary">Primary</span>
 ##split##
-<span class="badge rounded-pill text-bg-secondary">Secondary</span>
+<span class="badge rounded-pill bg-secondary">Secondary</span>
 ##split##
-<span class="badge rounded-pill text-bg-success">Success</span>
+<span class="badge rounded-pill bg-success">Success</span>
 ##split##
-<span class="badge rounded-pill text-bg-info">Info</span>
+<span class="badge rounded-pill bg-info">Info</span>
 ##split##
-<span class="badge rounded-pill text-bg-warning">Warning</span>
+<span class="badge rounded-pill bg-warning">Warning</span>
 ##split##
-<span class="badge rounded-pill text-bg-danger">Danger</span>
+<span class="badge rounded-pill bg-danger">Danger</span>
 ##split##
-<span class="badge rounded-pill text-bg-light">Light</span>
+<span class="badge rounded-pill bg-light">Light</span>
 ##split##
-<span class="badge rounded-pill text-bg-dark">Dark</span>
+<span class="badge rounded-pill bg-dark">Dark</span>
 
 {{< /example >}}

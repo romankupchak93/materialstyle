@@ -159,22 +159,22 @@
 // Generate contextual modifier classes for colorizing the alert
 @each $state in map-keys($theme-colors) {
   .btn-#{$state} {
-    --mdc-ripple-color: var(--#{$prefix}text-on-#{$state});
-    --#{$prefix}btn-color: var(--#{$prefix}text-on-#{$state});
+    --mdc-ripple-color: var(--#{$prefix}color-on-#{$state});
+    --#{$prefix}btn-color: var(--#{$prefix}color-on-#{$state});
     --#{$prefix}btn-bg: var(--#{$prefix}#{$state});
-    --#{$prefix}btn-hover-color: var(--#{$prefix}text-on-#{$state});
+    --#{$prefix}btn-hover-color: var(--#{$prefix}color-on-#{$state});
     --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$state}-hover);
-    --#{$prefix}btn-active-color: var(--#{$prefix}text-on-#{$state});
+    --#{$prefix}btn-active-color: var(--#{$prefix}color-on-#{$state});
     --#{$prefix}btn-active-bg: var(--#{$prefix}#{$state}-active);
-    --#{$prefix}btn-disabled-color: var(--#{$prefix}text-on-#{$state});
+    --#{$prefix}btn-disabled-color: var(--#{$prefix}color-on-#{$state});
     --#{$prefix}btn-disabled-bg: var(--#{$prefix}#{$state});
   }
 }
 
 @each $state in map-keys($theme-colors) {
   .btn-outline-#{$state} {
-    --mdc-ripple-color: var(--#{$prefix}#{$state});
-    --#{$prefix}btn-color: var(--#{$prefix}#{$state});
+    --mdc-ripple-color: var(--#{$prefix}color-on-#{$state});
+    --#{$prefix}btn-color: var(--#{$prefix}color-on-#{$state});
     --#{$prefix}btn-border-color: var(--#{$prefix}#{$state});
     --#{$prefix}btn-hover-color: var(--#{$prefix}#{$state}-emphasis);
     --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$state}-subtle);

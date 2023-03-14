@@ -42,14 +42,14 @@
   --m-primary: var(--m-violet-9);
   --m-primary-rgb: 95, 61, 196;
   --m-primary-subtle: var(--m-violet-2);
-  --m-text-on-primary: #fff;
+  --m-on-primary: #fff;
 }
 
 [data-bs-theme="dark"] {
   --m-primary: var(--m-violet-2);
   --m-primary-rgb: 208, 191, 255;
   --m-primary-subtle: var(--m-violet-12);
-  --m-text-on-primary: #000;
+  --m-on-primary: #000;
 }
 
 html {
@@ -72,7 +72,7 @@ html {
 .callout.primary {
   background-color: rgba(var(--m-primary-rgb), .15);
   .callout-icon {
-    color: var(--m-text-on-primary);
+    color: var(--m-on-primary);
     background-color: var(--m-primary);
   }
 }
