@@ -12,6 +12,7 @@ import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
 import Dropdown from './dropdown.js'
 import { defineJQueryPlugin } from './util/index.js'
+import TextField from './text-field'
 
 /**
  * Constants
@@ -51,7 +52,7 @@ class SelectField extends BaseComponent {
   constructor(element) {
     super(element)
     this._select = element
-    this._formFloating = element.closest(`.${CLASS_NAME_FLOATING}`)
+    this._formFloating = element.closest(`[class*="${CLASS_NAME_FLOATING}"`)
 
     if (this._select && this._formFloating) {
       this.initSelect()
@@ -99,9 +100,9 @@ class SelectField extends BaseComponent {
 
     if (this._inputGroup) {
       if (this._formFloating.className.includes(CLASS_NAME_FLOATING_OUTLINED)) {
-        this._inputGroup.classList.add('has-form-floating-outlined')
-      } else {
         this._inputGroup.classList.add('has-form-floating')
+      } else {
+        this._inputGroup.classList.add('has-form-floating-outlined')
       }
     }
 
@@ -121,9 +122,9 @@ class SelectField extends BaseComponent {
     this.showSelectedItems()
 
     if (this._formFloating.className.includes(CLASS_NAME_FLOATING_OUTLINED)) {
-      this.addNotch()
-    } else {
       this.addRipple()
+    } else {
+      this.addNotch()
     }
 
     if (this._label) {
@@ -515,6 +516,15 @@ class SelectField extends BaseComponent {
   }
 }
 
+const selectors = '.form-select'
+document.addEventListener('DOMContentLoaded', () => {
+  // const selectors = `.${CLASS_NAME_FLOATING}, .${CLASS_NAME_FLOATING_OUTLINED}`
+  const elements = document.querySelectorAll(selectors)
+
+  for (const element of elements) {
+    SelectField.getOrCreateInstance(element)
+  }
+})
 /**
  * jQuery
  */

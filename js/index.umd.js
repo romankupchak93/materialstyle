@@ -10,6 +10,7 @@ import Button from './src/button.js'
 import Carousel from './src/carousel.js'
 import Collapse from './src/collapse.js'
 import Dropdown from './src/dropdown.js'
+// import MaterialRipple from './src/material-ripple.js'
 import MaterialTab from './src/material-tab.js'
 import Modal from './src/modal.js'
 import Navbar from './src/navbar.js'
@@ -31,6 +32,7 @@ export default {
   Carousel,
   Collapse,
   Dropdown,
+  // MaterialRipple,
   MaterialTab,
   Modal,
   Navbar,

@@ -67,17 +67,17 @@
   }
 
   function initComponents() {
-    // TextField
-    const textFieldList = Array.prototype.slice.call(document.querySelectorAll('.form-control'))
-    textFieldList.map(textField => {
-      return new materialstyle.TextField(textField)
-    })
-
-    // SelectField
-    const selectList = Array.prototype.slice.call(document.querySelectorAll('.form-select'))
-    selectList.map(select => {
-      return new materialstyle.SelectField(select)
-    })
+    // // TextField
+    // const textFieldList = Array.prototype.slice.call(document.querySelectorAll('.form-control'))
+    // textFieldList.map(textField => {
+    //   return new materialstyle.TextField(textField)
+    // })
+    //
+    // // SelectField
+    // const selectList = Array.prototype.slice.call(document.querySelectorAll('.form-select'))
+    // selectList.map(select => {
+    //   return new materialstyle.SelectField(select)
+    // })
 
     // Shape
     const shapes = Array.prototype.slice.call(document.querySelectorAll('.m-shape-container'))
@@ -86,10 +86,17 @@
     })
 
     // Initialize Ripple
-    const rippleSurface = Array.prototype.slice.call(document.querySelectorAll('.ripple-surface'))
-    rippleSurface.map(s => {
-      return new mdc.ripple.MDCRipple(s)
-    })
+    const buttonList = document.querySelectorAll('.btn')
+    for (const element of buttonList) {
+      const ripple = document.createElement('span')
+      ripple.classList.add('ripple-surface')
+      element.append(ripple)
+      new mdc.ripple.MDCRipple(ripple)
+    }
+    // const rippleSurface = Array.prototype.slice.call(document.querySelectorAll('.ripple-surface'))
+    // rippleSurface.map(s => {
+    //   return new mdc.ripple.MDCRipple(s)
+    // })
 
     const tabs = Array.prototype.slice.call(document.querySelectorAll('.nav-tabs'))
     tabs.map(tab => {
@@ -146,19 +153,19 @@
     const myModal = document.getElementById('myModalWithForms')
     if (myModal) {
       myModal.addEventListener('shown.bs.modal', function () {
-        // Redraw Text Field
-        const textFields = this.querySelectorAll('.form-control')
-        for (const [, value] of Object.entries(textFields)) {
-          const textFieldInstance = materialstyle.TextField.getOrCreateInstance(value)
-          textFieldInstance.redraw()
-        }
-
-        // Redraw Select Field
-        const selectFields = document.querySelectorAll('.form-select')
-        for (const [, value] of Object.entries(selectFields)) {
-          const selectFieldInstance = materialstyle.SelectField.getOrCreateInstance(value)
-          selectFieldInstance.redraw()
-        }
+        // // Redraw Text Field
+        // const textFields = this.querySelectorAll('.form-control')
+        // for (const [, value] of Object.entries(textFields)) {
+        //   const textFieldInstance = materialstyle.TextField.getOrCreateInstance(value)
+        //   textFieldInstance.redraw()
+        // }
+        //
+        // // Redraw Select Field
+        // const selectFields = document.querySelectorAll('.form-select')
+        // for (const [, value] of Object.entries(selectFields)) {
+        //   const selectFieldInstance = materialstyle.SelectField.getOrCreateInstance(value)
+        //   selectFieldInstance.redraw()
+        // }
 
         // Redraw Tabs
         const tabs = this.querySelectorAll('.nav-tabs')
@@ -277,8 +284,8 @@
     populateShadows()
 
     /**
-     * Copy to clipboard
-     */
+       * Copy to clipboard
+       */
 
     const copyBtnTitle = 'Copy to clipboard'
 
@@ -300,10 +307,10 @@
     }
 
     /**
-     *
-     * @param {string} selector
-     * @param {string} title
-     */
+       *
+       * @param {string} selector
+       * @param {string} title
+       */
     function snippetButtonTooltip(selector, title) {
       for (const btn of document.querySelectorAll(selector)) {
         materialstyle.Tooltip.getOrCreateInstance(btn, { title })
@@ -347,8 +354,8 @@
     })
 
     /**
-     * Docsearch
-     */
+       * Docsearch
+       */
     if (document.querySelector('#docsearch')) {
       docsearch({
         container: '#docsearch',
@@ -362,8 +369,8 @@
     }
 
     /**
-     * Print color hex
-     */
+       * Print color hex
+       */
     // for (const element of document.querySelectorAll('.color-palette')) {
     //   const swatch = element.querySelector('div')
     //   const color = window.getComputedStyle(swatch).backgroundColor
@@ -377,4 +384,6 @@
       $('html, body').animate({ scrollTop: 0 }, 300, 'swing')
     })
   })
-})()
+}
+
+)()

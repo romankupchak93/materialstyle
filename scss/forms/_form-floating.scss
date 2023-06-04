@@ -1,5 +1,5 @@
 // stylelint-disable selector-max-class, selector-max-compound-selectors, selector-no-qualifying-type, function-disallowed-list
-.form-floating {
+.form-floating, .form-floating-filled {
   --#{$prefix}form-field-color: #{$form-field-color};
   --#{$prefix}form-field-bg: #{$form-field-bg};
   --#{$prefix}form-field-hover-bg: #{$form-field-hover-bg};
@@ -11,13 +11,18 @@
   position: relative;
   width: 100%;
 
-  &:not(.form-floating-outlined) {
+  &.form-floating-filled {
     background-color: var(--#{$prefix}form-field-bg);
     @include border-top-start-radius($border-radius);
     @include border-top-end-radius($border-radius);
 
     &:hover {
       background-color: var(--#{$prefix}form-field-hover-bg);
+    }
+
+    > .form-control,
+    > .form-control-plaintext {
+      height: $form-floating-filled-height;
     }
   }
 
@@ -39,7 +44,7 @@
 
   > .form-control,
   > .form-control-plaintext {
-    height: $form-floating-height;
+    height: $form-floating-filled-height;
     padding: $form-floating-padding-y var(--append-width, $form-floating-padding-x) $form-floating-padding-y var(--prepend-width, $form-floating-padding-x);
     line-height: $form-floating-line-height;
     color: var(--#{$prefix}form-field-color);
@@ -48,6 +53,12 @@
     @include border-bottom-end-radius(0);
     @include border-bottom-start-radius(0);
     box-shadow: none;
+
+    &:disabled,
+    &.disabled,
+    &[readonly] {
+      color: $input-disabled-color;
+    }
 
     &::placeholder {
       color: transparent;
@@ -64,6 +75,7 @@
       padding-top: $form-floating-input-padding-t;
       padding-bottom: $form-floating-input-padding-b;
     }
+
   }
 
   > textarea.form-control {
@@ -127,6 +139,7 @@
 
     .dropdown-item {
       min-height: 40px;
+
       > * {
         pointer-events: none;
       }
@@ -255,13 +268,31 @@
   }
 
   // Form floating outlined
-  &.form-floating-outlined {
+  &.form-floating {
+    > .form-control,
+    > .form-select {
+      &:disabled,
+      &.disabled {
+        + .m-notch {
+          .m-notch-before,
+          .m-notch-between,
+          .m-notch-after {
+            border-color: $input-disabled-bg;
+          }
+
+          > .m-notch-between > label {
+            color: $input-disabled-bg;
+          }
+        }
+      }
+    }
+
     .m-notch > .m-notch-between > label {
       position: relative;
       top: 0;
       left: 0;
       height: 100%;
-      padding: 1rem 0;
+      padding: .5rem 0;
       color: var(--#{$prefix}form-field-border-color);
       pointer-events: none;
       @include transition(opacity .1s ease-in-out, transform .1s ease-in-out);
@@ -320,7 +351,7 @@
         > label {
           left: 0;
           margin-right: var(--label-floating-margin-right, 0);
-          transform: scale(.85) translateY(-1.75rem);
+          transform: scale(.85) translateY(-1.25rem);
         }
       }
     }
@@ -329,7 +360,8 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark) {
-    .form-floating {
+    .form-floating,
+    .form-floating-filled {
       --#{$prefix}form-select-indicator: #{escape-svg($form-select-indicator-dark)};
       --#{$prefix}form-select-checkmark: #{escape-svg($form-select-checkmark-dark)};
     }
@@ -342,9 +374,8 @@
   width: 100%;
   height: 2px;
   // stylelint-disable value-list-comma-newline-after, value-list-comma-space-after
-  background:
-    linear-gradient(var(--#{$prefix}form-field-active-border-color), var(--#{$prefix}form-field-active-border-color)) bottom/0 2px no-repeat border-box,
-    linear-gradient(var(--#{$prefix}form-field-border-color), var(--#{$prefix}form-field-border-color)) bottom/100% 1px no-repeat border-box transparent;
+  background: linear-gradient(var(--#{$prefix}form-field-active-border-color), var(--#{$prefix}form-field-active-border-color)) bottom/0 2px no-repeat border-box,
+  linear-gradient(var(--#{$prefix}form-field-border-color), var(--#{$prefix}form-field-border-color)) bottom/100% 1px no-repeat border-box transparent;
   // stylelint-enable value-list-comma-newline-after, value-list-comma-space-after
   @include transition(.3s cubic-bezier(.4, 0, .2, 1));
 }
@@ -420,7 +451,8 @@
     right: 0;
   }
 
-  > .form-floating {
+  > .form-floating,
+  > .form-floating-filled {
     .form-control,
     .dropdown {
       ~ label {
@@ -435,4 +467,5 @@
     }
   }
 }
+
 // stylelint-enable selector-max-class, selector-max-compound-selectors, selector-no-qualifying-type, function-disallowed-list

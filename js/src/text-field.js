@@ -5,32 +5,30 @@
  * --------------------------------------------------------------------------
  */
 
-import {
-  getBaseColor, getPrimaryColor
-} from './util/color.js'
+import { getBaseColor, getPrimaryColor } from './util/color.js'
 import BaseComponent from './base-component.js'
+import SelectorEngine from './dom/selector-engine.js'
 import { defineJQueryPlugin } from './util/index.js'
 
 /**
+ * --------------------------------------------------------------------------
  * Constants
+ * --------------------------------------------------------------------------
  */
 
 const NAME = 'textfield'
+const VERSION = '3.1.0-alpha1'
 
 const CLASS_NAME_FLOATING = 'form-floating'
-const CLASS_NAME_FLOATING_OUTLINED = 'form-floating-outlined'
+const CLASS_NAME_FLOATING_OUTLINED = 'form-floating-filled'
 
 const LABEL_SCALE = 0.85
-
-/**
- * Class definition
- */
 
 class TextField extends BaseComponent {
   constructor(element) {
     super(element)
     this._textField = element
-    this._formFloating = element.closest(`.${CLASS_NAME_FLOATING}`)
+    this._formFloating = element.closest(`[class*="${CLASS_NAME_FLOATING}"`)
 
     if (this._textField && this._formFloating) {
       this.initTextFields()
@@ -40,6 +38,10 @@ class TextField extends BaseComponent {
 
   static get NAME() {
     return NAME
+  }
+
+  static get VERSION() {
+    return VERSION
   }
 
   static jQueryInterface(config) {
@@ -91,9 +93,9 @@ class TextField extends BaseComponent {
     }
 
     if (this._formFloating.className.includes(CLASS_NAME_FLOATING_OUTLINED)) {
-      this.addNotch()
-    } else {
       this.addRipple()
+    } else {
+      this.addNotch()
     }
   }
 
@@ -156,8 +158,29 @@ class TextField extends BaseComponent {
   }
 }
 
+const selectors = '.form-control'
+document.addEventListener('DOMContentLoaded', () => {
+  // const selectors = `.${CLASS_NAME_FLOATING}, .${CLASS_NAME_FLOATING_OUTLINED}`
+  const elements = document.querySelectorAll(selectors)
+
+  for (const element of elements) {
+    TextField.getOrCreateInstance(element)
+  }
+})
+
+// const selectors = `${CLASS_NAME_FLOATING}, ${CLASS_NAME_FLOATING_OUTLINED}`
+// for (const selector of selectors) {
+//   document.addEventListener('DOMContentLoaded', () => {
+//     for (const element of SelectorEngine.find(selector)) {
+//       TextField.getOrCreateInstance(element)
+//     }
+//   })
+// }
+
 /**
+ * ------------------------------------------------------------------------
  * jQuery
+ * ------------------------------------------------------------------------
  */
 
 defineJQueryPlugin(TextField)
