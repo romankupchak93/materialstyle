@@ -9,7 +9,7 @@ toc: true
 keywords: forms, text-field
 ---
 
-<p class="fs-4 ms-0 mb-4 page-description">Text fields allow users to enter text into a UI.</p> 
+<p class="fs-4 ms-0 mb-4 page-description">Text fields allow users to enter text into a UI.</p>
 
 They come in two types:
 - Filled text fields
@@ -28,13 +28,13 @@ Also note that the ```<input>``` must come first so we can utilize a sibling sel
 ## Filled
 {{< example codeId="code1" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
-<div class="form-floating">
+<div class="form-floating-line">
   <input type="text" class="form-control" id="firstname"
          placeholder="firstname" autocomplete="off">
   <label for="firstname">Firstname</label>
 </div>
 ##split##
-<div class="form-floating">
+<div class="form-floating-line">
   <input type="text" class="form-control" id="disabled"
          placeholder="disabled" autocomplete="off" disabled>
   <label for="disabled">Disabled</label>
@@ -46,13 +46,13 @@ Also note that the ```<input>``` must come first so we can utilize a sibling sel
 
 {{< example codeId="code2" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
-<div class="form-floating form-floating-outlined">
+<div class="form-floating">
   <input type="text" class="form-control" id="firstname-outline"
          placeholder="firstname" autocomplete="off">
   <label for="firstname-outline">Firstname</label>
 </div>
 ##split##
-<div class="form-floating form-floating-outlined">
+<div class="form-floating">
   <input type="text" class="form-control" id="disabled-outlined"
          placeholder="disabled-outlined" autocomplete="off" disabled>
   <label for="disabled-outlined">Disabled</label>
@@ -86,7 +86,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
          placeholder="lastname" autocomplete="off">
   <label for="lastname-outline">Lastname</label>
 </div>
-        
+
 {{< /example >}}
 
 ## With Icon
@@ -94,7 +94,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 {{< example codeId="code4" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
 <div class="form-floating-with-icon">
-  <div class="form-floating">
+  <div class="form-floating-line">
     <input type="email" class="form-control" id="email"
            placeholder="Email" autocomplete="off">
     <label for="email">Email</label>
@@ -105,7 +105,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating form-floating-outlined">
+  <div class="form-floating">
     <input type="email" class="form-control" id="email-outline"
            placeholder="Email" autocomplete="off">
     <label for="email-outline">Email</label>
@@ -116,7 +116,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating">
+  <div class="form-floating-line">
     <input type="password" class="form-control" id="password"
            placeholder="Password" autocomplete="off">
     <label for="password">Password</label>
@@ -127,7 +127,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating form-floating-outlined">
+  <div class="form-floating">
     <input type="password" class="form-control" id="password-outline"
            placeholder="Password" autocomplete="off">
     <label for="password-outline">Password</label>
@@ -136,7 +136,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
     <i class="bi bi-keyboard-fill"></i>
   </span>
 </div>
-        
+
 {{< /example >}}
 
 ## With Spinner
@@ -144,7 +144,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 {{< example codeId="code5" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
 <div class="form-floating-with-icon">
-  <div class="form-floating">
+  <div class="form-floating-line">
     <input type="email" class="form-control" id="email-spinner"
            placeholder="Email" autocomplete="off">
     <label for="email-spinner">Email</label>
@@ -159,7 +159,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating form-floating-outlined">
+  <div class="form-floating">
     <input type="email" class="form-control" id="email-outline-spinner"
            placeholder="Email" autocomplete="off">
     <label for="email-outline-spinner">Email</label>
@@ -174,7 +174,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating">
+  <div class="form-floating-line">
     <input type="password" class="form-control" id="password-spinner"
            placeholder="Password" autocomplete="off">
     <label for="password-spinner">Password</label>
@@ -185,7 +185,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
 </div>
 ##split##
 <div class="form-floating-with-icon">
-  <div class="form-floating form-floating-outlined">
+  <div class="form-floating">
     <input type="password" class="form-control" id="password-outline-spinner"
            placeholder="Password" autocomplete="off">
     <label for="password-outline-spinner">Password</label>
@@ -194,7 +194,7 @@ Make use of ```--bs-form-field-border-color``` & ```--bs-form-field-active-borde
     <div class="spinner-grow text-success"></div>
   </div>
 </div>
-        
+
 {{< /example >}}
 
 ## Text Area
@@ -202,13 +202,13 @@ To set a custom height on your ```<textarea>```, do not use the rows attribute. 
 
 {{< example codeId="code6" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
-<div class="form-floating">
+<div class="form-floating-line">
   <textarea class="form-control" placeholder="address"
             id="address" style="height: 100px"></textarea>
   <label for="address">Address</label>
 </div>
 ##split##
-<div class="form-floating form-floating-outlined">
+<div class="form-floating">
   <textarea class="form-control" id="address-outline"
             placeholder="address" style="height: 100px"></textarea>
   <label for="address-outline">Address</label>
@@ -217,24 +217,24 @@ To set a custom height on your ```<textarea>```, do not use the rows attribute. 
 {{< /example >}}
 
 ## Readonly Plain text
-If you want to have ```<input readonly>``` elements in your form styled as plain text, 
-use the ```.form-control-plaintext``` class to remove the default form field styling 
+If you want to have ```<input readonly>``` elements in your form styled as plain text,
+use the ```.form-control-plaintext``` class to remove the default form field styling
 and preserve the correct margin and padding.
 
 {{< example codeId="code7" class="d-flex justify-content-evenly align-items-center flex-wrap gap-3">}}
 
-<div class="form-floating">
+<div class="form-floating-line">
   <input type="email" class="form-control-plaintext" id="email-read-only-outline"
          placeholder="email-read-only-outline" value="someone@example.com" readonly autocomplete="off">
   <label for="email-read-only-outline">Email</label>
 </div>
 ##split##
-<div class="form-floating form-floating-outlined">
+<div class="form-floating">
   <input type="email" class="form-control-plaintext" id="email-read-only-outline-outline"
          placeholder="email-read-only-outline-outline" value="someone@example.com" readonly autocomplete="off">
   <label for="email-read-only-outline-outline">Email</label>
 </div>
-        
+
 {{< /example >}}
 
 ## Javascript
@@ -249,7 +249,7 @@ var textFields = textFieldList.map(function (textField) {
 <br>
 
 ### Redraw
-If a Text field is not visible at the time of initialization OR if it is within a container that is not visible by default, 
+If a Text field is not visible at the time of initialization OR if it is within a container that is not visible by default,
 for example, ```Modal```, ```Collapse```, ```Offcanvas```, you need to call the ```redraw()``` function on the instance when it becomes visible.
 
 ```javascript

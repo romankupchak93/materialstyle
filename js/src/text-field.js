@@ -9,6 +9,8 @@ import {
   getBaseColor, getPrimaryColor
 } from './util/color.js'
 import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
+import SelectorEngine from './dom/selector-engine.js'
 import { defineJQueryPlugin } from './util/index.js'
 
 /**
@@ -17,8 +19,12 @@ import { defineJQueryPlugin } from './util/index.js'
 
 const NAME = 'textfield'
 
+const DATA_KEY = 'bs.textfield'
+const EVENT_KEY = `.${DATA_KEY}`
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY}`
+
 const CLASS_NAME_FLOATING = 'form-floating'
-const CLASS_NAME_FLOATING_OUTLINED = 'form-floating-outlined'
+const CLASS_NAME_FLOATING_OUTLINED = 'form-floating-line'
 
 const LABEL_SCALE = 0.85
 
@@ -30,7 +36,7 @@ class TextField extends BaseComponent {
   constructor(element) {
     super(element)
     this._textField = element
-    this._formFloating = element.closest(`.${CLASS_NAME_FLOATING}`)
+    this._formFloating = element.closest(`[class*=${CLASS_NAME_FLOATING}]`)
 
     if (this._textField && this._formFloating) {
       this.initTextFields()
@@ -73,9 +79,9 @@ class TextField extends BaseComponent {
 
     if (this._inputGroup) {
       if (this._formFloating.className.includes(CLASS_NAME_FLOATING_OUTLINED)) {
-        this._inputGroup.classList.add('has-form-floating-outlined')
-      } else {
         this._inputGroup.classList.add('has-form-floating')
+      } else {
+        this._inputGroup.classList.add('has-form-floating-outlined')
       }
     }
 
@@ -91,9 +97,9 @@ class TextField extends BaseComponent {
     }
 
     if (this._formFloating.className.includes(CLASS_NAME_FLOATING_OUTLINED)) {
-      this.addNotch()
-    } else {
       this.addRipple()
+    } else {
+      this.addNotch()
     }
   }
 
@@ -156,6 +162,13 @@ class TextField extends BaseComponent {
   }
 }
 
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+  const selectors = '.form-control'
+  const elements = document.querySelectorAll(selectors)
+  for (const element of elements) {
+    TextField.getOrCreateInstance(element)
+  }
+})
 /**
  * jQuery
  */

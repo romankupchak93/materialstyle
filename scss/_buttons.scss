@@ -36,7 +36,9 @@
   }
 
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
   font-family: var(--#{$prefix}btn-font-family);
   @include font-size(var(--#{$prefix}btn-font-size));
@@ -50,7 +52,7 @@
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
   border: 0;
-  @include border-radius(var(--#{$prefix}btn-border-radius));
+  @include border-radius($btn-border-radius-sm);
   @include gradient-bg(var(--#{$prefix}btn-bg));
   @include box-shadow(var(--#{$prefix}btn-box-shadow));
   @include transition($btn-transition);
@@ -150,7 +152,6 @@
   }
 }
 
-
 //
 // Alternate buttons
 //
@@ -187,6 +188,7 @@
     --#{$prefix}btn-disabled-border-color: var(--#{$prefix}#{$state});
   }
 }
+
 // scss-docs-end btn-variant-loops
 
 
@@ -232,7 +234,7 @@
 //
 
 .btn-lg {
-  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-sm);
 }
 
 .btn-sm {

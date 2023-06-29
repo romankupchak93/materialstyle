@@ -68,16 +68,16 @@
 
   function initComponents() {
     // TextField
-    const textFieldList = Array.prototype.slice.call(document.querySelectorAll('.form-control'))
-    textFieldList.map(textField => {
-      return new materialstyle.TextField(textField)
-    })
+    // const textFieldList = Array.prototype.slice.call(document.querySelectorAll('.form-control'))
+    // textFieldList.map(textField => {
+    //   return new materialstyle.TextField(textField)
+    // })
 
     // SelectField
-    const selectList = Array.prototype.slice.call(document.querySelectorAll('.form-select'))
-    selectList.map(select => {
-      return new materialstyle.SelectField(select)
-    })
+    // const selectList = Array.prototype.slice.call(document.querySelectorAll('.form-select'))
+    // selectList.map(select => {
+    //   return new materialstyle.SelectField(select)
+    // })
 
     // Shape
     const shapes = Array.prototype.slice.call(document.querySelectorAll('.m-shape-container'))
@@ -147,18 +147,18 @@
     if (myModal) {
       myModal.addEventListener('shown.bs.modal', function () {
         // Redraw Text Field
-        const textFields = this.querySelectorAll('.form-control')
-        for (const [, value] of Object.entries(textFields)) {
-          const textFieldInstance = materialstyle.TextField.getOrCreateInstance(value)
-          textFieldInstance.redraw()
-        }
+        // const textFields = this.querySelectorAll('.form-control')
+        // for (const [, value] of Object.entries(textFields)) {
+        //   const textFieldInstance = materialstyle.TextField.getOrCreateInstance(value)
+        //   textFieldInstance.redraw()
+        // }
 
         // Redraw Select Field
-        const selectFields = document.querySelectorAll('.form-select')
-        for (const [, value] of Object.entries(selectFields)) {
-          const selectFieldInstance = materialstyle.SelectField.getOrCreateInstance(value)
-          selectFieldInstance.redraw()
-        }
+        // const selectFields = document.querySelectorAll('.form-select')
+        // for (const [, value] of Object.entries(selectFields)) {
+        //   const selectFieldInstance = materialstyle.SelectField.getOrCreateInstance(value)
+        //   selectFieldInstance.redraw()
+        // }
 
         // Redraw Tabs
         const tabs = this.querySelectorAll('.nav-tabs')

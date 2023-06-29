@@ -15,6 +15,9 @@ keywords: buttons
 </button>
 ##split##
 <button type="button" class="btn btn-primary m-1">
+  <i class="bi bi-star-fill"></i> Icon
+</button>
+<button type="button" class="btn btn-primary m-1">
   Icon <i class="bi bi-star-fill"></i>
 </button>
 ##split##
@@ -80,7 +83,7 @@ Add ```.btn-outline-[color]``` to create Outlined buttons.
 <button type="button" class="btn btn-outline-primary m-1" disabled>
   Disabled
 </button>
-        
+
 {{< /example >}}
 
 ## Text Buttons
@@ -103,7 +106,7 @@ Add ```.border-0``` to Outlined buttons to create Text buttons.
 <button type="button" class="btn btn-outline-primary border-0 m-1" disabled>
   Disabled
 </button>
-        
+
 {{< /example >}}
 
 ## Color options
@@ -340,5 +343,5 @@ rippleSurface.map(s => {
   <button type="button" class="btn btn-primary" disabled>Disabled</button>
   <button type="button" class="btn btn-primary" disabled>Disabled</button>
 </div>
-        
+
 {{< /example >}}
